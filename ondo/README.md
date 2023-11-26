@@ -8,3 +8,6 @@
 
 # 텔레그램 설치
  - pip3 install python-telegram-bot --upgrade
+
+# 결과 메시지
+<img src="https://github.com/smart-daepa/raspberry-pi/assets/87405853/078036fd-2e6b-4cbe-8772-7c018b34cc2e" width="400" height="400">
