@@ -2,12 +2,12 @@ import telegram, sys, asyncio
 sys.path.append('/home/admin/201844079/raspberry-pi/util')
 from datetime import datetime
 import secret
-import ondo
+from ondo import ondo
 
 
 async def sendTelegramMessage():
 	
-	temp, humi = ondo.ondo()
+	temp, humi = ondo()
 	print(temp, humi)
 	content = ''
 	formatted_now = datetime.now().strftime("%Y년 %m월 %d일 %H시 %M분 %S초")
