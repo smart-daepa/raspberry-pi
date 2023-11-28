@@ -1,0 +1,10 @@
+import asyncio
+
+async def main() : 
+	token = "ÅÚ·¹ º¿ API"
+	chat_id = "º¿ chat id"
+
+	bot = telegram.Bot(token=token)
+	await bot.send_message(chat_id, 'º¸³¾ ¸Þ¼¼Áö')
+
+asyncio.run(main())
