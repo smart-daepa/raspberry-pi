@@ -25,32 +25,32 @@ def savedata(measurement_name, *args):
             col_values.append(v)
             flag = 0
 
-        if flag == 1:
-            print("column과 value의 짝이 맞지 않습니다.")
-            return
-
-        for i in range(0, len(col_names)):
-            fields_values[col_names[i]] = float(col_values[i])
-
-        data = [{
-            'measurement' : measure,
-            'tags' : {
-                'date' : date
-            },
-            'fields' : fields_values
-        }]
-
-        client = None
-        try:
-            client = influxdb('localhost', 8086, 'root', 'root', 'project')  # database명: project
-        except Exception as e:
-            print("Exception" + str(e))
-        if client is not None:
-            try:
-                client.write_points(data)
-            except Exception as e:
-                print("Exception write " + str(e))
-            finally:
-                client.close()
-        print("Running influxDB OK")
+    if flag == 1:
+        print("column과 value의 짝이 맞지 않습니다.")
         return
+
+    for i in range(0, len(col_names)):
+        fields_values[col_names[i]] = float(col_values[i])
+
+    data = [{
+        'measurement' : measure,
+        'tags' : {
+            'date' : date
+        },
+        'fields' : fields_values
+    }]
+
+    client = None
+    try:
+        client = influxdb('localhost', 8086, 'root', 'root', 'project')  # database명: project
+    except Exception as e:
+        print("Exception" + str(e))
+    if client is not None:
+        try:
+            client.write_points(data)
+        except Exception as e:
+            print("Exception write " + str(e))
+        finally:
+            client.close()
+    print("Running influxDB OK")
+    return
