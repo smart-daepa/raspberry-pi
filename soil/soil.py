@@ -12,7 +12,7 @@ def soil():
 	while True:
 		if seri.in_waiting != 0:
 			line = seri.readline().decode()
-			soil_humi = map(float, line.split())
+			soil_humi = float(lin.split(":")[-1].strip())
 			
 			savedata("soil", "soil_humi", soil_humi)
 			
