@@ -1,2 +1,4 @@
 util
 secret.py
+__pycache__
+*.jpg
