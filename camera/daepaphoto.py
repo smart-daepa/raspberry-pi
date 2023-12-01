@@ -3,8 +3,9 @@ import time
 import telegram
 from telegram import Update
 from telegram.ext import Application, CommandHandler, ContextTypes
-from takePhoto import takePhoto
-from util import secret
+import secret
+
+from picamera2 import Picamera2,Preview
 
 import sys
 
@@ -17,9 +18,21 @@ logging.basicConfig(
 chat_id = secret.getId()
 token = secret.getToken()
 
+def take():
+    camera = Picamera2()
+    camera.start_preview(Preview.QTGL)
+
+    preview_config = camera.create_preview_configuration(main={"size":(800,600)})
+    camera.configure(preview_config)
+    camera.start()
+    time.sleep(2)
+    camera.capture_file("image.jpg")
+    camera.close()
+
+
 #takephoto로 찍은 사진을 텔레그램에 전송
 async def photo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    takePhoto()
+    take()
     time.sleep(1)
     job = context.job
     await context.bot.sendPhoto(chat_id, photo=open("image.jpg","rb"))

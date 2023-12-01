@@ -2,7 +2,7 @@ import time
 from picamera2 import Picamera2,Preview
 
 #실행한 폴더에 image.jpg 사진 촬영
-def takePhoto():
+def take():
     camera = Picamera2()
     camera.start_preview(Preview.QTGL)
 

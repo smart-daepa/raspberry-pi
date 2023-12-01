@@ -1,11 +1,10 @@
 import telegram, sys, asyncio
 from datetime import datetime
 from util import secret
-from seri import main
 
 
 async def sendTelegramMessage(jodo, temp, humi):
-	
+	print(1)
 	content = ''
 	formatted_now = datetime.now().strftime("%Y년 %m월 %d일 %H시 %M분 %S초")
 	
@@ -28,9 +27,3 @@ async def sendTelegramMessage(jodo, temp, humi):
 	bot = telegram.Bot(token=token)
 	
 	await bot.sendMessage(chat_id, text)
-
-try:
-	asyncio.run(sendTelegramMessage())
-except telegram.error:
-	print("텔레그램 오류 발생. 재실행 시도...")
-	asyncio.run(sendTelegramMessage())
