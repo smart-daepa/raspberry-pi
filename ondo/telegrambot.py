@@ -1,13 +1,10 @@
 import telegram, sys, asyncio
-sys.path.append('/home/admin/201844079/raspberry-pi/util')
 from datetime import datetime
-import secret
-from ondo import ondo
+from util import secret
+from seri import main
 
 
-async def sendTelegramMessage():
-	
-	temp, humi = ondo()
+async def sendTelegramMessage(jodo, temp, humi):
 	
 	content = ''
 	formatted_now = datetime.now().strftime("%Y년 %m월 %d일 %H시 %M분 %S초")
@@ -23,6 +20,7 @@ async def sendTelegramMessage():
 	text += '현재 시간: ' + formatted_now
 	text += '\n현재 온도: ' + str(temp)
 	text += '\n현재 습도: ' + str(humi) + '\n'
+	text += '\n현재 조도: ' + str(jodo) + '\n'
 	text += content
 	
 	token = secret.getToken()
