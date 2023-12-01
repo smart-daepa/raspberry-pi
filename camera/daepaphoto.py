@@ -4,6 +4,7 @@ import telegram
 from telegram import Update
 from telegram.ext import Application, CommandHandler, ContextTypes
 from takePhoto import takePhoto
+from util import secret
 
 import sys
 
@@ -13,7 +14,8 @@ logging.basicConfig(
 )
 
 #텔레봇 chat id 입력
-chat_id = "chat_id"
+chat_id = secret.getId()
+token = secret.getToken()
 
 #takephoto로 찍은 사진을 텔레그램에 전송
 async def photo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -27,7 +29,7 @@ async def photo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 #텔레그램 명령어
 def main() -> None:
     #텔레봇 token입력
-    application = Application.builder().token("token").build()
+    application = Application.builder().token(token).build()
 
     # on different commands - answer in Telegram
     application.add_handler(CommandHandler("photo", photo))
