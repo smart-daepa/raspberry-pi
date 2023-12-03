@@ -4,7 +4,7 @@ from util import secret
 
 
 async def sendTelegramMessage(jodo, temp, humi):
-	print(1)
+	
 	content = ''
 	formatted_now = datetime.now().strftime("%Y년 %m월 %d일 %H시 %M분 %S초")
 	
