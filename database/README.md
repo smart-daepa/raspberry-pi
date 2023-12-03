@@ -87,7 +87,7 @@ jodo 331 ondo 26.08 15 soil_moisture 27
 ### seri.py에서 savedata.py를 호출하는 코드
 ```python3
 # jodo
-avedata(arr[0], "sensorValue", float(arr[1]))
+savedata(arr[0], "sensorValue", float(arr[1]))
 # ondo
 savedata(arr[2], "temp", float(arr[3]), "humi", float(arr[4]))
 asyncio.run(telegrambot.sendTelegramMessage(arr[1], float(arr[3]), float(arr[4])))
