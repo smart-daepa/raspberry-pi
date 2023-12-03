@@ -12,6 +12,6 @@ def jodo():
 	while True:
 		if seri.in_waiting != 0:
 			line = seri.readline().decode()
-			jodo = float(lin.split(":")[-1].strip())
+			jodo = int(line.split(":")[-1].strip())
 			
 			savedata("jodo", "jodo", jodo)
