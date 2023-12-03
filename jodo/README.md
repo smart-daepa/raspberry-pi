@@ -16,6 +16,11 @@
 (DB에 최종적으로 저장된 모습)
 ![image](https://github.com/smart-daepa/raspberry-pi/assets/113170868/ca007fc2-84f5-42cf-a267-2bb1697f2548)
 
+(실행 결과)
+
+
+https://github.com/smart-daepa/raspberry-pi/assets/113170868/4c54297e-2500-4f7e-8a87-296c6b3348d0
+
 
 ## 진행사항
 1. 1시간 단위로 저장되는것을 확인함
