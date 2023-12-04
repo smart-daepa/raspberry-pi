@@ -22,7 +22,11 @@ def main():
 				savedata(arr[0], "sensorValue", float(arr[1]))
 				# ondo
 				savedata(arr[2], "temp", float(arr[3]), "humi", float(arr[4]))
-				asyncio.run(telegrambot.sendTelegramMessage(arr[1], float(arr[3]), float(arr[4])))
+				try:
+					asyncio.run(telegrambot.sendTelegramMessage(arr[1], float(arr[3]), float(arr[4])))
+				except telegram.error:
+					print("텔레그램 오류 발생. 재실행 시도...")
+					asyncio.run(telegrambot.sendTelegramMessage(arr[1], float(arr[3]), float(arr[4])))
 				# soil
 				savedata(arr[5], "humi", float(arr[6]))
 				
